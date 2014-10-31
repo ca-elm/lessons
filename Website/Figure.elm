@@ -37,15 +37,28 @@ timeline : [(Float, Element)] -> Int -> Element
 timeline parts tw =
   let offsets = scanl (+) 0 <| map fst parts
       total = last offsets
+      time (f,_) o =
+        toText (if o == 0 then "start" else "after " ++ show o ++ " s")
+          |> centered
+          |> width (floor (f * toFloat tw / total))
+      tick o (f,_) =
+        map (\(x,y) -> ((o + x) / total * toFloat tw, y))
+        [ (0, 0)
+        , (f/2, 0)
+        , (f/2, 5)
+        , (f/2, -5)
+        , (f/2, 0)
+        , (f, 0)
+        ]
   in  flow down
-    [ foldr1 beside <| zipWith (\(f,_) o -> toText (if o == 0 then "start" else "after " ++ show o ++ " s") |> centered |> width (floor (f * toFloat tw / total))) parts offsets
-    , collage tw 10 [path (foldr (++) [] <| zipWith (\o (f,_) ->
-        [ (o / total * toFloat tw, 0)
-        , ((o + f/2) / total * toFloat tw, 0)
-        , ((o + f/2) / total * toFloat tw, 5)
-        , ((o + f/2) / total * toFloat tw, -5)
-        , ((o + f/2) / total * toFloat tw, 0)
-        , ((o + f) / total * toFloat tw, 0)
-        ]) offsets parts) |> traced (solid black) |> move (0.5 - toFloat tw/2, 0.5)]
-    , foldr1 beside <| map (\(f,e) -> width (floor (f * toFloat tw / total)) e) parts
+    [ foldr1 beside <| zipWith time parts offsets
+    , collage tw 10
+      [ zipWith tick offsets parts
+        |> foldr (++) []
+        |> path
+        |> traced (solid black)
+        |> move (0.5 - toFloat tw/2, 0.5)
+      ]
+    , map (\(f,e) -> width (floor (f * toFloat tw / total)) e) parts
+      |> foldr1 beside
     ]
