@@ -1,0 +1,4 @@
+#!/bin/sh
+
+elm -m Main.elm --bundle-runtime --build-dir /tmp/ca-elm-lessons/ && git checkout gh-pages && git commit -m Build && git push origin gh-pages
+git checkout master
