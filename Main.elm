@@ -33,7 +33,7 @@ Why do we need parentheses?
 
     main = asText 12 * 13
 
-This could mean `main = (asText 12) * 13` or `main = asText (12 * 13)`. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers *and then* convert the *output* (whatever 12 × 13 is) to an Element. It doesn't make much sense the other way around (what do you get when you multiply 13 by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain — rather noisily — if we do it that way, or leave the parentheses off entirely:
+This could mean `main = (asText 12) * 13` or `main = asText (12 * 13)`. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers *and then* convert the *output* (whatever 12 × 13 is) to an Element. It doesn't make much sense the other way around (what do you get when you multiply 13 by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain — rather noisily — if we do it that way or leave the parentheses off entirely:
 
 <div class=output>
 
