@@ -73,12 +73,12 @@ navigation file w =
           sym title
           |> toText
           |> leftAligned
-          |> link ("/" ++ f)
+          |> Structure.link "../" f
         Nothing -> empty
       contentsLink =
         toText "Table of Contents"
         |> centered
-        |> link ("/Index.elm")
+        |> Structure.link "../" "Index.elm"
   in  flow inward
         [ container w (heightOf previous) topLeft previous
         , container w (heightOf contentsLink) midTop contentsLink

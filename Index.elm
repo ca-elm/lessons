@@ -1,5 +1,5 @@
 import Website.Template (bare)
-import Website.Structure (contents)
+import Website.Structure as Structure
 
 words w = flow down [width w [markdown|
 
@@ -18,9 +18,9 @@ tableOfContents w =
             |> width bw
           , toText title
             |> leftAligned
-            |> link ("/" ++ f)
+            |> Structure.link "" f
           ]
-  in  indexedMap chapter contents |> flow down |> width w
+  in  indexedMap chapter Structure.contents |> flow down |> width w
 
 index = bare "Game Design" words
 main = index.main
