@@ -22,7 +22,7 @@ tableOfContents w =
           ]
   in  indexedMap chapter contents |> flow down |> width w
 
-index = bare "Table of Contents" words
+index = bare "Game Design" words
 main = index.main
 port title : String
 port title = index.title
