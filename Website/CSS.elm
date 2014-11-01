@@ -29,6 +29,13 @@ pre code {
 pre {
   padding: 8px;
 }
+a:link,
+a:visited {
+  color: #05c;
+}
+a:active {
+  color: #037;
+}
 .output pre {
   background: 0;
   border-radius: 0;

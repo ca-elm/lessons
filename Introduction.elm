@@ -1,6 +1,6 @@
 import Website.Figure (diagram, timeline)
 import Website.Text (code, output)
-import Website.Template (lesson)
+import Website.Template (chapter)
 
 words w = flow down [width w [markdown|
 
@@ -175,4 +175,7 @@ timeline2 = timeline
   ]
 --timeline2 = timeline <| map (\t -> (1, code <| "asText " ++ show (173081 + t * 1001))) [1 .. 4]
 
-main = lesson words
+intro = chapter "Introduction.elm" words
+main = intro.main
+port title : String
+port title = intro.title
