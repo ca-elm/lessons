@@ -1,5 +1,6 @@
 import Website.Template (bare)
 import Website.Structure as Structure
+import Website.URL as URL
 
 words w = flow down [width w [markdown|
 
@@ -18,7 +19,7 @@ tableOfContents w =
             |> width bw
           , toText title
             |> leftAligned
-            |> Structure.link "" f
+            |> URL.link "" f
           ]
   in  indexedMap chapter Structure.contents |> flow down |> width w
 

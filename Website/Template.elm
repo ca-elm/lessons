@@ -2,6 +2,7 @@ module Website.Template (chapter, bare) where
 
 import Window
 import Website.Structure as Structure
+import Website.URL as URL
 import Website.CSS (css)
 
 type Page =
@@ -73,12 +74,12 @@ navigation file w =
           sym title
           |> toText
           |> leftAligned
-          |> Structure.link "../" f
+          |> URL.link "../" f
         Nothing -> empty
       contentsLink =
         toText "Table of Contents"
         |> centered
-        |> Structure.link "../" "Index.elm"
+        |> URL.link "../" "Index.elm"
   in  flow inward
         [ container w (heightOf previous) topLeft previous
         , container w (heightOf contentsLink) midTop contentsLink
