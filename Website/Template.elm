@@ -24,19 +24,14 @@ page title scene =
         Display -> scene (w,h)
   in  { main =
           lift2 display Window.dimensions
-          -- hack: add CSS, then do another update to fix layout
-          <| sampleOn (keepWhen (lift (\t -> t < 200) <| foldp (+) 0 <| fps 60) 0 (fps 60))
+          -- kludge: add CSS, then do another update to fix layout
+          <| sampleOn (keepWhen (lift (flip (<) 3) <| foldp (always ((+) 1)) 0 <| fps 60) 0 (fps 60))
           <| merge (constant Init)
           <| lift (always Display) (fps 60)
       , title = title
       }
 
 data State = Init | Display
-
---chapter file words = lift (content file words << fst)
---  <| merge Window.dimensions
---  -- hack: add CSS, then do another update to fix layout
---  <| sampleOn (keepWhen (lift (\t -> t < 200) <| foldp (+) 0 <| fps 60) 0 (fps 60)) Window.dimensions
 
 contentWidth : Int -> Int
 contentWidth w = min 600 (w - 32)
