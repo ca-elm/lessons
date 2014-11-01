@@ -84,7 +84,7 @@ Elm.Website.Template.make = function (_elm) {
                   case "Nothing":
                   return $Graphics$Element.empty;}
                _E.Case($moduleName,
-               "between lines 72 and 79");
+               "between lines 67 and 74");
             }();
          });
          var previous = A2(navButton,
@@ -165,7 +165,7 @@ Elm.Website.Template.make = function (_elm) {
                  body);
               }();}
          _E.Case($moduleName,
-         "between lines 46 and 58");
+         "between lines 41 and 53");
       }();
    });
    var bareContent = F2(function (words,
@@ -180,7 +180,7 @@ Elm.Website.Template.make = function (_elm) {
                  words(cw));
               }();}
          _E.Case($moduleName,
-         "between lines 62 and 63");
+         "between lines 57 and 58");
       }();
    });
    var Display = {ctor: "Display"};
@@ -212,12 +212,15 @@ Elm.Website.Template.make = function (_elm) {
                 ,main: A2($Signal.lift2,
                 display,
                 $Window.dimensions)($Signal.sampleOn(A3($Signal.keepWhen,
-                $Signal.lift(function (t) {
-                   return _U.cmp(t,200) < 0;
-                })(A2($Signal.foldp,
+                $Signal.lift(A2($Basics.flip,
                 F2(function (x,y) {
-                   return x + y;
+                   return _U.cmp(x,y) < 0;
                 }),
+                3))(A2($Signal.foldp,
+                $Basics.always(F2(function (x,
+                y) {
+                   return x + y;
+                })(1)),
                 0)($Time.fps(60))),
                 0,
                 $Time.fps(60)))($Signal.merge($Signal.constant(Init))(A2($Signal.lift,
