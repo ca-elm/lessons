@@ -61,11 +61,12 @@ Elm.Website.Template.make = function (_elm) {
    $Time = Elm.Time.make(_elm),
    $Website$CSS = Elm.Website.CSS.make(_elm),
    $Website$Structure = Elm.Website.Structure.make(_elm),
+   $Website$URL = Elm.Website.URL.make(_elm),
    $Window = Elm.Window.make(_elm);
    var navigation = F2(function (file,
    w) {
       return function () {
-         var contentsLink = A2($Website$Structure.link,
+         var contentsLink = A2($Website$URL.link,
          "../",
          "Index.elm")($Text.centered($Text.toText("Table of Contents")));
          var navButton = F2(function (adjacent,
@@ -76,14 +77,14 @@ Elm.Website.Template.make = function (_elm) {
                {case "Just":
                   switch (_v0._0.ctor)
                     {case "_Tuple2":
-                       return A2($Website$Structure.link,
+                       return A2($Website$URL.link,
                          "../",
                          _v0._0._0)($Text.leftAligned($Text.toText(sym(_v0._0._1))));}
                     break;
                   case "Nothing":
                   return $Graphics$Element.empty;}
                _E.Case($moduleName,
-               "between lines 71 and 78");
+               "between lines 72 and 79");
             }();
          });
          var previous = A2(navButton,
@@ -164,7 +165,7 @@ Elm.Website.Template.make = function (_elm) {
                  body);
               }();}
          _E.Case($moduleName,
-         "between lines 45 and 57");
+         "between lines 46 and 58");
       }();
    });
    var bareContent = F2(function (words,
@@ -179,7 +180,7 @@ Elm.Website.Template.make = function (_elm) {
                  words(cw));
               }();}
          _E.Case($moduleName,
-         "between lines 61 and 62");
+         "between lines 62 and 63");
       }();
    });
    var Display = {ctor: "Display"};
@@ -201,10 +202,10 @@ Elm.Website.Template.make = function (_elm) {
                           case "Init":
                           return $Website$CSS.css;}
                        _E.Case($moduleName,
-                       "between lines 21 and 24");
+                       "between lines 22 and 25");
                     }();}
                _E.Case($moduleName,
-               "between lines 21 and 24");
+               "between lines 22 and 25");
             }();
          });
          return {_: {}
@@ -283,10 +284,8 @@ Elm.Website.Structure.make = function (_elm) {
    _E = _N.Error.make(_elm),
    $moduleName = "Website.Structure",
    $Basics = Elm.Basics.make(_elm),
-   $Graphics$Element = Elm.Graphics.Element.make(_elm),
    $List = Elm.List.make(_elm),
-   $Maybe = Elm.Maybe.make(_elm),
-   $String = Elm.String.make(_elm);
+   $Maybe = Elm.Maybe.make(_elm);
    var find = F2(function (p,xs) {
       return function () {
          switch (xs.ctor)
@@ -297,17 +296,8 @@ Elm.Website.Structure.make = function (_elm) {
             case "[]":
             return $Maybe.Nothing;}
          _E.Case($moduleName,
-         "between lines 38 and 40");
+         "between lines 31 and 33");
       }();
-   });
-   var link = F2(function (prefix,
-   f) {
-      return $Graphics$Element.link(_U.eq(f,
-      "Index.elm") ? prefix : _L.append(prefix,
-      _L.append(A2($String.dropRight,
-      4,
-      $String.toLower(f)),
-      "/")));
    });
    var contents = _L.fromArray([{ctor: "_Tuple2"
                                 ,_0: "Introduction.elm"
@@ -353,15 +343,45 @@ Elm.Website.Structure.make = function (_elm) {
               break;
             case "Nothing": return file;}
          _E.Case($moduleName,
-         "between lines 21 and 23");
+         "between lines 14 and 16");
       }();
    };
    _elm.Website.Structure.values = {_op: _op
                                    ,contents: contents
-                                   ,link: link
                                    ,title: title
                                    ,find: find
                                    ,previous: previous
                                    ,next: next};
    return _elm.Website.Structure.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.URL = Elm.Website.URL || {};
+Elm.Website.URL.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.URL = _elm.Website.URL || {};
+   if (_elm.Website.URL.values)
+   return _elm.Website.URL.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.URL",
+   $Basics = Elm.Basics.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $String = Elm.String.make(_elm);
+   var link = F2(function (prefix,
+   f) {
+      return $Graphics$Element.link(_U.eq(f,
+      "Index.elm") ? prefix : _L.append(prefix,
+      _L.append(A2($String.dropRight,
+      4,
+      $String.toLower(f)),
+      "/")));
+   });
+   _elm.Website.URL.values = {_op: _op
+                             ,link: link};
+   return _elm.Website.URL.values;
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>
