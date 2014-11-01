@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Index</title><script type="text/javascript" src="elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+<html><head><meta charset="UTF-8"><title>Test</title><script type="text/javascript" src="../elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
 Elm.Main.make = function (_elm) {
    "use strict";
    _elm.Main = _elm.Main || {};
@@ -12,61 +12,29 @@ Elm.Main.make = function (_elm) {
    _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
    $moduleName = "Main",
-   $Basics = Elm.Basics.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
-   $List = Elm.List.make(_elm),
    $Native$Json = Elm.Native.Json.make(_elm),
    $Native$Ports = Elm.Native.Ports.make(_elm),
-   $String = Elm.String.make(_elm),
    $Text = Elm.Text.make(_elm),
-   $Website$Structure = Elm.Website.Structure.make(_elm),
    $Website$Template = Elm.Website.Template.make(_elm);
-   var tableOfContents = function (w) {
-      return function () {
-         var bw = 24;
-         var chapter = F2(function (i,
-         _v0) {
-            return function () {
-               switch (_v0.ctor)
-               {case "_Tuple2":
-                  return A2($Graphics$Element.flow,
-                    $Graphics$Element.right,
-                    _L.fromArray([$Graphics$Element.width(bw)($Text.leftAligned($Text.toText(_L.append($String.show(i + 1),
-                                 ". "))))
-                                 ,A2($Website$Structure.link,
-                                 "",
-                                 _v0._0)($Text.leftAligned($Text.toText(_v0._1)))]));}
-               _E.Case($moduleName,
-               "between lines 15 and 22");
-            }();
-         });
-         return $Graphics$Element.width(w)($Graphics$Element.flow($Graphics$Element.down)(A2($List.indexedMap,
-         chapter,
-         $Website$Structure.contents)));
-      }();
-   };
    var words = function (w) {
-      return A2($Graphics$Element.flow,
-      $Graphics$Element.down,
-      _L.fromArray([A2($Graphics$Element.width,
-                   w,
-                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>Game Design</h1>\n<h2>Table of Contents</h2>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                   "4:30"))
-                   ,tableOfContents(w)]));
+      return A2($Graphics$Element.width,
+      w,
+      $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>Another Chapter</h1>\n<h2>Test</h2>\n<p>This is another chapter.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+      "3:19"));
    };
-   var index = A2($Website$Template.bare,
-   "Game Design",
+   var another = A2($Website$Template.chapter,
+   "Test.elm",
    words);
-   var main = index.main;
+   var main = another.main;
    var title = $Native$Ports.portOut("title",
    function (v) {
       return v;
    },
-   index.title);
+   another.title);
    _elm.Main.values = {_op: _op
                       ,words: words
-                      ,tableOfContents: tableOfContents
-                      ,index: index
+                      ,another: another
                       ,main: main};
    return _elm.Main.values;
 };Elm.Website = Elm.Website || {};
