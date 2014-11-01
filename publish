@@ -1,7 +1,12 @@
 #!/bin/sh
 
 for f in *.elm; do
-  elm -m "$f" --set-runtime /elm-runtime.js --build-dir /tmp/ca-elm-lessons/ || exit
+  if [ "$f" == "Index.elm" ]; then
+    prefix=""
+  else
+    prefix="../"
+  fi
+  elm -m "$f" --set-runtime "${prefix}elm-runtime.js" --build-dir /tmp/ca-elm-lessons/ || exit
 done
 
 git checkout gh-pages || exit
@@ -16,6 +21,6 @@ for f in /tmp/ca-elm-lessons/*.html; do
   fi
 done
 
-git add --all && git commit -m Build #&& git push origin gh-pages
+git add --all && git commit -m Build && git push origin gh-pages
 
-#git checkout master
+git checkout master
