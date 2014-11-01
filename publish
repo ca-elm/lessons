@@ -1,4 +1,21 @@
 #!/bin/sh
 
-elm -m Main.elm --bundle-runtime --build-dir /tmp/ca-elm-lessons/ && git checkout gh-pages && mv -f /tmp/ca-elm-lessons/Main.html index.html && git commit -am Build && git push origin gh-pages
-git checkout master
+for f in *.elm; do
+  elm -m "$f" --set-runtime /elm-runtime.js --build-dir /tmp/ca-elm-lessons/ || exit
+done
+
+git checkout gh-pages || exit
+
+for f in /tmp/ca-elm-lessons/*.html; do
+  l="$(basename -s .html $f | awk '{print tolower($0)}')"
+  if [ "$l" == "index" ]; then
+    mv -f "$f" "index.html"
+  else
+    mkdir -p "$l"
+    mv -f "$f" "$l/index.html"
+  fi
+done
+
+git add --all && git commit -m Build #&& git push origin gh-pages
+
+#git checkout master
