@@ -32,6 +32,10 @@ pre {
 a:link,
 a:visited {
   color: #05c;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 a:active {
   color: #037;
