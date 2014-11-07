@@ -9,6 +9,12 @@ Elm.Native.KaTeX.make = function(runtime) {
   }
 
   var Element = Elm.Graphics.Element.make(runtime);
+  var URL = Elm.Website.URL.make(runtime);
+
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'static/katex/katex.min.css';
+  document.head.appendChild(link);
 
   var metrics = document.createElement('div');
   metrics.style.position = "absolute";
@@ -61,15 +67,6 @@ Elm.Native.KaTeX.make = function(runtime) {
     markdown: markdown
   };
 };
-
-(function() {
-  'use strict';
-
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = '/static/katex/katex.min.css';
-  document.head.appendChild(link);
-}());
 
 // KaTeX 0.1.1
 // @license MIT

@@ -3,7 +3,6 @@ module Website.Template (chapter, bare) where
 import Window
 import Website.Structure as Structure
 import Website.URL as URL
-import Native.CSS
 
 type Page =
   { main : Signal Element
@@ -59,12 +58,12 @@ navigation file w =
           sym title
           |> toText
           |> leftAligned
-          |> URL.link "../" f
+          |> URL.link f
         Nothing -> empty
       contentsLink =
         toText "Table of Contents"
         |> centered
-        |> URL.link "../" "Index.elm"
+        |> URL.link "Index.elm"
   in  flow inward
         [ container w (heightOf previous) topLeft previous
         , container w (heightOf contentsLink) midTop contentsLink

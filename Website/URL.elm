@@ -2,5 +2,8 @@ module Website.URL where
 
 import Graphics.Element as E
 
-link : String -> String -> Element -> Element
-link prefix f = E.link f
+resolve : String -> String
+resolve f = "/" ++ f
+
+link : String -> Element -> Element
+link = E.link << resolve

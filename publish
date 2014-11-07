@@ -5,12 +5,8 @@ mv Website/URL.elm Website/_URL.elm
 for f in *.elm; do
   if [ "$f" == "KaTeX.elm" ]; then
     continue
-  elif [ "$f" == "Index.elm" ]; then
-    prefix=""
-  else
-    prefix="../"
   fi
-  elm -m "$f" --set-runtime "${prefix}elm-runtime.js" --src-dir "gh-pages" --build-dir /tmp/ca-elm-lessons/ || exit
+  elm -m "$f" --set-runtime "/lessons/elm-runtime.js" --src-dir "gh-pages" --build-dir /tmp/ca-elm-lessons/ || exit
 done
 
 mv Website/_URL.elm Website/URL.elm
@@ -19,12 +15,7 @@ git checkout gh-pages || exit
 
 for f in /tmp/ca-elm-lessons/*.html; do
   l="$(basename -s .html $f | awk '{print tolower($0)}')"
-  if [ "$l" == "index" ]; then
-    mv -f "$f" "index.html"
-  else
-    mkdir -p "$l"
-    mv -f "$f" "$l/index.html"
-  fi
+  mv -f "$f" "$l.html"
 done
 
 git checkout master -- static

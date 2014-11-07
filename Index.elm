@@ -19,7 +19,7 @@ tableOfContents w =
             |> width bw
           , toText title
             |> leftAligned
-            |> URL.link "" f
+            |> URL.link f
           ]
   in  indexedMap chapter Structure.contents |> flow down |> width w
 
