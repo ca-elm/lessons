@@ -67,7 +67,7 @@ Elm.Native.KaTeX.make = function(runtime) {
 
   var link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'static/katex/katex.min.css';
+  link.href = '/static/katex/katex.min.css';
   document.head.appendChild(link);
 }());
 
