@@ -1,10 +1,7 @@
-module Website.CSS where
-
-css = [markdown|<p style="margin: 0">
-<style class="css-markdown">
 body {
-  font: 16px/1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+  font: 16px/1.5 Helvetica Neue, Helvetica, Arial, sans-serif !important;
 }
+
 h1 {
   font-size: 4em;
   font-weight: 200;
@@ -16,6 +13,7 @@ h2 {
   font-weight: 200;
   margin: 2em 0 0.5em;
 }
+
 pre, code {
   background: #f3f3f3;
   border-radius: 3px;
@@ -29,6 +27,7 @@ pre code {
 pre {
   padding: 8px;
 }
+
 a:link,
 a:visited {
   color: #05c;
@@ -40,6 +39,7 @@ a:hover {
 a:active {
   color: #037;
 }
+
 .output pre {
   background: 0;
   border-radius: 0;
@@ -50,9 +50,12 @@ a:active {
   display: inline-block;
   text-align: left;
 }
-/* Hide the automatic paragraph in CSS markdown */
-.css-markdown + p {
-  margin: 0;
+
+.block-math {
+  text-align: center;
+  margin: 1em 0;
 }
-</style>
-|]
+.block-math > div {
+  text-align: left;
+  display: inline-block;
+}

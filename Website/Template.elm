@@ -3,7 +3,7 @@ module Website.Template (chapter, bare) where
 import Window
 import Website.Structure as Structure
 import Website.URL as URL
-import Website.CSS (css)
+import Native.CSS
 
 type Page =
   { main : Signal Element
@@ -18,20 +18,10 @@ bare : String -> (Int -> Element) -> Page
 bare title words = page title (bareContent words)
 
 page : String -> ((Int,Int) -> Element) -> Page
-page title scene =
-  let display (w,h) s = case s of
-        Init -> css
-        Display -> scene (w,h)
-  in  { main =
-          lift2 display Window.dimensions
-          -- kludge: add CSS, then do another update to fix layout
-          <| sampleOn (keepWhen (lift (flip (<) 3) <| foldp (always ((+) 1)) 0 <| fps 60) 0 (fps 60))
-          <| merge (constant Init)
-          <| lift (always Display) (fps 60)
-      , title = title
-      }
-
-data State = Init | Display
+page title content =
+  { main = lift content Window.dimensions
+  , title = title
+  }
 
 contentWidth : Int -> Int
 contentWidth w = min 600 (w - 32)
@@ -58,7 +48,7 @@ bareContent words (w,h) =
   in  centeredContent w (words cw)
 
 centeredContent w body =
-  container w (heightOf body) midTop (body `above` css)
+  container w (heightOf body) midTop body
 
 navigation : String -> Int -> Element
 navigation file w =

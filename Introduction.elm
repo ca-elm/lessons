@@ -1,8 +1,9 @@
 import Website.Figure (diagram, timeline)
 import Website.Text (code, output)
 import Website.Template (chapter)
+import KaTeX as Math
 
-words w = flow down [width w [markdown|
+words w = flow down [width w <| Math.markdown [markdown|
 
 An Introduction to Elm
 ======================
@@ -25,7 +26,7 @@ You can put any number you like there:
 Math
 ----
 
-I can never remember what 12 × 13 is, so let's get Elm to do it for me. Elm understands the normal math operators `+`, `-`, `/`, and `*`, as well as `x^y` for x<sup>y</sup>.
+I can never remember what $`12 \times 13`$ is, so let's get Elm to do it for me. Elm understands the normal math operators `+`, `-`, `/`, and `*`, as well as `x^y` for $`x^y`$.
 
     main = asText (12 * 13)
 
@@ -33,7 +34,7 @@ Why do we need parentheses?
 
     main = asText 12 * 13
 
-This could mean `main = (asText 12) * 13` or `main = asText (12 * 13)`. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers *and then* convert the *output* (whatever 12 × 13 is) to an Element. It doesn't make much sense the other way around (what do you get when you multiply 13 by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain — rather noisily — if we do it that way or leave the parentheses off entirely:
+This could mean `main = (asText 12) * 13` or `main = asText (12 * 13)`. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers *and then* convert the *output* (whatever $`12 \times 13`$ is) to an Element. It doesn't make much sense the other way around (what do you get when you multiply 13 by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain — rather noisily — if we do it that way or leave the parentheses off entirely:
 
 <div class=output>
 
@@ -50,7 +51,7 @@ Makes sense: Elm wants a number to multiply by 13, but we're giving it an Elemen
 Lists
 -----
 
-Speaking of 12 × 13, I kind of like these numbers that you get when you multiply a number by the one after it. I don't know why. They're pretty cool, though. Let's make a list of them:
+Speaking of $`12 \times 13`$, I kind of like these numbers that you get when you multiply a number by the one after it. I don't know why. They're pretty cool, though. Let's make a list of them:
 
     main = asText [1 * 2, 2 * 3, 3 * 4, 4 * 5, 5 * 6, 6 * 7]
 
@@ -65,7 +66,7 @@ I'm getting pretty tired of typing all these stars. Let's make a function that d
 
 What does this mean?
 
-|], diagram2 w, width w [markdown|
+|], diagram2 w, width w <| Math.markdown [markdown|
 
     main = asText [f 1, f 2, f 3, f 4, f 5, f 6]
 
@@ -105,13 +106,14 @@ Now we've seen two different ways to define functions: the `f x = …` way, wher
 Challenge Time
 --------------
 
-OK, so my sequence is cool, but that x<sup>2</sup> + 1 thing sounds pretty cool too. Why don't you make a function (call it `g`, if you like) which calculates the numbers in this sequence:
+OK, so my sequence is cool, but that $`x^2 + 1`$ thing sounds pretty cool too. Why don't you make a function (call it `g`, if you like) which calculates the numbers in this sequence:
 
-- 1 × 1 + 1 = 2
-- 2 × 2 + 1 = 5
-- 3 × 3 + 1 = 10
-- 4 × 4 + 1 = 17
-- …
+    $$$
+    1 \times 1 + 1 = 2
+    2 \times 2 + 1 = 5
+    3 \times 3 + 1 = 10
+    4 \times 4 + 1 = 17
+    \ldots
 
 Then make `gList` to save yourself some time and show a list of the first ten or so on the screen. It should look something like this:
 
@@ -163,7 +165,7 @@ diagram1 = diagram
 diagram2 = diagram
   [ ("f ",             [markdown| `f` is the name of the function. We need a name (like `asText`) so that we can use it later. |])
   , ("x ",             [markdown| `x` is the input to `f`. Or, more accurately, it's a name we use for the input to `f`. Whenever we use the function, Elm replaces every `x` in the definition of `f` (remember, that's the stuff after the `=` sign) with the input we give it, like 12 or 5. |])
-  , ("= x * (x + 1) ", [markdown| `x * (x + 1)` is more of the stuff we've seen before, except now it has an `x` in it. We need parentheses around `x + 1` because Elm goes by the same order of operations we do — multiplication and division, then addition and subtraction. We don't want x<sup>2</sup> + 1; we want x · (x + 1). |])
+  , ("= x * (x + 1) ", Math.markdown [markdown| `x * (x + 1)` is more of the stuff we've seen before, except now it has an `x` in it. We need parentheses around `x + 1` because Elm goes by the same order of operations we do — multiplication and division, then addition and subtraction. We don't want $`x^2 + 1`$; we want $`x \times (x + 1)`$. |])
   ]
 
 timeline1 = timeline <| map (\t -> (1, centered << toText << show <| 173081 + t * 1001)) [1 .. 4]
