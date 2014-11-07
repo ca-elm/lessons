@@ -29,6 +29,6 @@ done
 
 git checkout master -- static
 
-# git add --all && git commit -m Build && git push origin gh-pages
+git add --all && git commit -m Build && git push origin gh-pages
 
-# git checkout master
+git checkout master
