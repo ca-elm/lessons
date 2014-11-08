@@ -168,11 +168,42 @@ Those numbers are still too big, though. Let's use the `count` function to turn 
 Challenge time
 --------------
 
-I like cubes. Do you like cubes? Make a signal of successive cubes. It should look something like this:
+I like cubes. Do you like cubes? Make a signal of successive cubes and then display it. You should get something like this:
 
 |], timeline5 w, md [markdown|
 
-<p></p>
+Currying
+--------
+
+Hold on. I'm done typing `fSignal = lift f` and `gSignal = lift g` and `asTextSignal = lift asText` and all those other function definitions just to use them once in my code. Since we're telling Elm that the stuff on the left side is the same as the stuff on the right side, why don't we just use the stuff on the right side without giving it a new name?
+
+    main = (lift asText) (count (every second))
+
+Cool. `(lift asText)` gives us a function as output, and we use that function right away on `(count (every second))`. This works for `map` too:
+
+    main = asText ((map f) [1, 2, 3, 4, 5, 6])
+
+In fact, this is so common that Elm lets us get rid of the parentheses:
+
+    main = asText (map f [1, 2, 3, 4, 5, 6])
+
+And now it looks like we're using `map` on `f` *and* the list instead of just on `f`—like `map` takes *two* things as input and then outputs a new list. The thing is, those two ways of looking at `map` are the same in Elm: A function that takes two inputs really just takes the first one and outputs a function; this new function takes the second one and outputs the final result of the function. This is called *currying* after Haskell Curry.
+
+We've actually seen a lot of these pretend-two-input-functions before. They just didn't look like functions at the time, because they have weird names like `+` and `-` and `*`. When a function has a name like that, Elm treats it as an *infix operator*: it goes between its two inputs instead of before them. If you want to use an infix operator like a normal function, you can type parentheses around the operator name:
+
+    main = asText ((+) 3 4)
+
+Remember that this is the same thing as:
+
+    main = asText (((+) 3) 4)
+
+In other words, `(+)` takes a number and returns a *function* that adds that number to its input. We can use these "adding functions" like we would any other kind of function, for example:
+
+    main = asText (map ((+) 3) [1, 2, 3, 4, 5])
+
+or:
+
+    main = lift asText (lift ((*) 3) (count (every second)))
 
 |]]
 
