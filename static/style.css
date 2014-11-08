@@ -31,6 +31,7 @@ pre code {
 }
 pre {
   padding: 8px;
+  overflow: auto;
 }
 
 a:link,
