@@ -164,7 +164,7 @@ diagram1 = diagram
 
 diagram2 = diagram
   [ ("f ",             [markdown| `f` is the name of the function. We need a name (like `asText`) so that we can use it later. |])
-  , ("x ",             [markdown| `x` is the input to `f`. Or, more accurately, it's a name we use for the input to `f`. Whenever we use the function, Elm replaces every `x` in the definition of `f` (remember, that's the stuff after the `=` sign) with the input we give it, like 12 or 5. |])
+  , ("x ",             [markdown| `x` is the input to `f`. Or, more accurately, it's a name we use for the input to `f`. Whenever we use the function, Elm replaces every `x` in the definition of `f` (remember, that's the stuff after the `=` sign) with the input we give it, like `12` or `5`. |])
   , ("= x * (x + 1) ", Math.markdown [markdown| `x * (x + 1)` is more of the stuff we've seen before, except now it has an `x` in it. We need parentheses around `x + 1` because Elm goes by the same order of operations we do — multiplication and division, then addition and subtraction. We don't want $`x^2 + 1`$; we want $`x \times (x + 1)`$. |])
   ]
 
