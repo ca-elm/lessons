@@ -170,10 +170,10 @@ diagram2 = diagram
 
 timeline1 w = timeline (map (\t -> (1, Math.block w << show <| 173081 + t * 1001)) [1 .. 4]) w
 timeline2 = timeline
-  [ (1, [markdown|`asText 173081`|])
-  , (1, [markdown|`asText 174082`|])
-  , (1, [markdown|`asText 175083`|])
-  , (1, [markdown|`asText 176084`|])
+  [ (1, [markdown|<div style="text-align:center"><code>asText 173081</code></div>|])
+  , (1, [markdown|<div style="text-align:center"><code>asText 174082</code></div>|])
+  , (1, [markdown|<div style="text-align:center"><code>asText 175083</code></div>|])
+  , (1, [markdown|<div style="text-align:center"><code>asText 176084</code></div>|])
   ]
 --timeline2 = timeline <| map (\t -> (1, code <| "asText " ++ show (173081 + t * 1001))) [1 .. 4]
 
