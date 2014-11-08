@@ -51,12 +51,18 @@ Elm.Native.KaTeX.make = function(runtime) {
     });
   }
 
+  function renderString(string) {
+    return katex.renderToString(string.replace(/&lt;/g, '>').replace(/&gt;/g, '<').replace(/&amp;/g, '&'))
+  }
+
   function markdown(words) {
     if (words.element.ctor === 'RawHtml') {
       words.element.html = words.element.html.replace(/<pre class="sourceCode"><code class="sourceCode">\$\$\$\n([^]+?)<\/code><\/pre>/g, function(_, formula) {
-        return '<div class=block-math><div><div>' + formula.split("\n").map(katex.renderToString).join('</div><div>') + '</div></div></div>';
+        return '<div class=block-math><div><div>' + formula.split("\n").map(function(string) {
+          return renderString("\\displaystyle{" + string + "}");
+        }).join('</div><div>') + '</div></div></div>';
       }).replace(/\$<code>(.+?)<\/code>\$/g, function(_, formula) {
-        return katex.renderToString(formula);
+        return renderString(formula);
       });
     }
     return words;
@@ -118,7 +124,7 @@ Elm.Main.make = function (_elm) {
    var words = function (w) {
       return A2($Graphics$Element.flow,
       $Graphics$Element.down,
-      _L.fromArray([$Graphics$Element.width(w)($KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>Another Chapter</h1>\n<h2>Test</h2>\n<p>This is another chapter. Here&#39;s some math:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">$$$\nf(x) = \\int_{-\\infty}^\\infty \\hat f(\\xi)\\,e^{2 \\pi i \\xi x}\\,d\\xi</code></pre>\n<p>Cool. But not as cool as $<code>x^2 + 1</code>$.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+      _L.fromArray([$Graphics$Element.width(w)($KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>Another Chapter</h1>\n<h2>Test</h2>\n<p>This is another chapter. Here&#39;s some math:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">$$$\nf(x) = \\int_{-\\infty}^\\infty \\hat f(\\xi)\\,e^{2 \\pi i \\xi x}\\,d\\xi</code></pre>\n<p>Cool. But not as cool as $<code>20 &gt; x^2 + 1 \\leq 100</code>$.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
       "4:47")))]));
    };
    var another = A2($Website$Template.chapter,
