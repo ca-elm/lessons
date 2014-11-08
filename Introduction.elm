@@ -3,7 +3,7 @@ import Website.Text (code, output)
 import Website.Template (chapter)
 import KaTeX as Math
 
-words w = flow down [width w <| Math.markdown [markdown|
+words w = let md = width w << Math.markdown in flow down [md [markdown|
 
 An Introduction to Elm
 ======================
@@ -17,7 +17,7 @@ Tell Elm to display a number:
 
 What does this mean?
 
-|], diagram1 w, width w [markdown|
+|], diagram1 w, md [markdown|
 
 You can put any number you like there:
 
@@ -66,7 +66,7 @@ I'm getting pretty tired of typing all these stars. Let's make a function that d
 
 What does this mean?
 
-|], diagram2 w, width w <| Math.markdown [markdown|
+|], diagram2 w, md [markdown|
 
     main = asText [f 1, f 2, f 3, f 4, f 5, f 6]
 
@@ -117,7 +117,7 @@ OK, so my sequence is cool, but that $`x^2 + 1`$ thing sounds pretty cool too. W
 
 Then make `gList` to save yourself some time and show a list of the first ten or so on the screen. It should look something like this:
 
-|], output w <| map (\x -> x^2 + 1) [1..10], width w [markdown|
+|], output w <| map (\x -> x^2 + 1) [1..10], md [markdown|
 
 Signals
 -------
@@ -130,7 +130,7 @@ Up until now, we've been telling Elm that `main` is an Element. Elements don't c
 
 `(every second)` is a signal of the current time, which updates every second. It looks something like this:
 
-|], timeline1 w, width w [markdown|
+|], timeline1 w, md [markdown|
 
 That's not the same representation of the time that we usually see — it's just a big number that keeps increasing — but let's use it to try out these signal things.
 
@@ -140,11 +140,11 @@ That's not the same representation of the time that we usually see — it's just
 
 But this gives us:
 
-|], output w <| every second, width w [markdown|
+|], output w <| every second, md [markdown|
 
 Not very helpful. `asText` takes anything and converts it to an Element — not a *signal of* Elements. Since the values in the signal can change over time, the only thing that stays the same is that it's a signal — so that's what `asText` tells us. What we really want is to use `asText` on each of the *values* of `(every second)` instead the signal itself, like this:
 
-|], timeline2 w, width w [markdown|
+|], timeline2 w, md [markdown|
 
 Luckily, Elm has a function that does exactly this.
 

@@ -52,7 +52,6 @@ Elm.Native.KaTeX.make = function(runtime) {
 
   function markdown(words) {
     if (words.element.ctor === 'RawHtml') {
-      console.log(words.element.html);
       words.element.html = words.element.html.replace(/<pre class="sourceCode"><code class="sourceCode">\$\$\$\n([^]+?)<\/code><\/pre>/g, function(_, formula) {
         return '<div class=block-math><div><div>' + formula.split("\n").map(katex.renderToString).join('</div><div>') + '</div></div></div>';
       }).replace(/\$<code>(.+?)<\/code>\$/g, function(_, formula) {
