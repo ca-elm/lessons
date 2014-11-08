@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Index</title><script type="text/javascript" src="/lessons/elm-runtime.js"></script><script type="text/javascript">Elm.Native = Elm.Native || {};
+<html><head><meta charset="UTF-8"><title>Introduction</title><script type="text/javascript" src="/lessons/elm-runtime.js"></script><script type="text/javascript">Elm.Native = Elm.Native || {};
 Elm.Native.KaTeX = Elm.Native.KaTeX || {};
 
 Elm.Native.KaTeX.make = function(runtime) {
@@ -111,60 +111,361 @@ Elm.Main.make = function (_elm) {
    $moduleName = "Main",
    $Basics = Elm.Basics.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $KaTeX = Elm.KaTeX.make(_elm),
    $List = Elm.List.make(_elm),
    $Native$Json = Elm.Native.Json.make(_elm),
    $Native$Ports = Elm.Native.Ports.make(_elm),
    $String = Elm.String.make(_elm),
    $Text = Elm.Text.make(_elm),
-   $Website$Structure = Elm.Website.Structure.make(_elm),
+   $Time = Elm.Time.make(_elm),
+   $Website$Figure = Elm.Website.Figure.make(_elm),
    $Website$Template = Elm.Website.Template.make(_elm),
-   $Website$URL = Elm.Website.URL.make(_elm);
-   var tableOfContents = function (w) {
-      return function () {
-         var bw = 24;
-         var chapter = F2(function (i,
-         _v0) {
-            return function () {
-               switch (_v0.ctor)
-               {case "_Tuple2":
-                  return A2($Graphics$Element.flow,
-                    $Graphics$Element.right,
-                    _L.fromArray([$Graphics$Element.width(bw)($Text.leftAligned($Text.toText(_L.append($String.show(i + 1),
-                                 ". "))))
-                                 ,$Website$URL.link(_v0._0)($Text.leftAligned($Text.toText(_v0._1)))]));}
-               _E.Case($moduleName,
-               "between lines 16 and 23");
-            }();
-         });
-         return $Graphics$Element.width(w)($Graphics$Element.flow($Graphics$Element.down)(A2($List.indexedMap,
-         chapter,
-         $Website$Structure.contents)));
-      }();
-   };
+   $Website$Text = Elm.Website.Text.make(_elm);
+   var timeline2 = $Website$Figure.timeline(_L.fromArray([{ctor: "_Tuple2"
+                                                          ,_0: 1
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 173081</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "173:9")}
+                                                         ,{ctor: "_Tuple2"
+                                                          ,_0: 1
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 174082</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "174:9")}
+                                                         ,{ctor: "_Tuple2"
+                                                          ,_0: 1
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 175083</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "175:9")}
+                                                         ,{ctor: "_Tuple2"
+                                                          ,_0: 1
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 176084</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "176:9")}]));
+   var timeline1 = $Website$Figure.timeline(A2($List.map,
+   function (t) {
+      return {ctor: "_Tuple2"
+             ,_0: 1
+             ,_1: $Text.centered($Text.toText($String.show(173081 + t * 1001)))};
+   },
+   _L.range(1,4)));
+   var diagram2 = $Website$Figure.diagram(_L.fromArray([{ctor: "_Tuple2"
+                                                        ,_0: "f "
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>f</code> is the name of the function. We need a name (like <code>asText</code>) so that we can use it later.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "166:24")}
+                                                       ,{ctor: "_Tuple2"
+                                                        ,_0: "x "
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>x</code> is the input to <code>f</code>. Or, more accurately, it&#39;s a name we use for the input to <code>f</code>. Whenever we use the function, Elm replaces every <code>x</code> in the definition of <code>f</code> (remember, that&#39;s the stuff after the <code>=</code> sign) with the input we give it, like 12 or 5.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "167:24")}
+                                                       ,{ctor: "_Tuple2"
+                                                        ,_0: "= x * (x + 1) "
+                                                        ,_1: $KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>x * (x + 1)</code> is more of the stuff we&#39;ve seen before, except now it has an <code>x</code> in it. We need parentheses around <code>x + 1</code> because Elm goes by the same order of operations we do — multiplication and division, then addition and subtraction. We don&#39;t want $<code>x^2 + 1</code>$; we want $<code>x \\times (x + 1)</code>$.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "168:38"))}]));
+   var diagram1 = $Website$Figure.diagram(_L.fromArray([{ctor: "_Tuple2"
+                                                        ,_0: "main "
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>main</code> tells Elm what to show on the screen.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "159:17")}
+                                                       ,{ctor: "_Tuple2"
+                                                        ,_0: "= "
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>=</code> tells Elm that <code>main</code> is the same thing as the stuff on the right side. We call this process <em>defining</em> <code>main</code>, so the stuff after <code>=</code> is the <em>definition</em> of <code>main</code>.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "160:17")}
+                                                       ,{ctor: "_Tuple2"
+                                                        ,_0: "asText "
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText</code> turns something (like a number) into something else (an Element) that can show up on the screen. It&#39;s a function, which means it converts an input to an output. In this case, <code>100</code> is the input, and what you see on the screen is the output. Note that what you see on the screen isn&#39;t just a number — it&#39;s a number in black, 10-point Courier New at the top-left corner of the screen. This is the kind of information that Elements store but numbers do not. <p>When we want to use a function, we write the function and then its input, separated by a space. This is called <em>applying</em> the function.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "161:17")}
+                                                       ,{ctor: "_Tuple2"
+                                                        ,_0: "12 "
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>100</code> is just a number. When we write a number the way we normally would, Elm gives us a number.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "162:17")}]));
    var words = function (w) {
       return A2($Graphics$Element.flow,
       $Graphics$Element.down,
-      _L.fromArray([A2($Graphics$Element.width,
+      _L.fromArray([$Graphics$Element.width(w)($KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>An Introduction to Elm</h1>\n<h2>Displaying things</h2>\n<p>Tell Elm to display a number:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 12</code></pre>\n<p>What does this mean?</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "6:47")))
+                   ,diagram1(w)
+                   ,A2($Graphics$Element.width,
                    w,
-                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>Game Design</h1>\n<h2>Table of Contents</h2>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                   "5:30"))
-                   ,tableOfContents(w)]));
+                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>You can put any number you like there:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 777</code></pre>\n<h2>Math</h2>\n<p>I can never remember what $<code>12 \\times 13</code>$ is, so let&#39;s get Elm to do it for me. Elm understands the normal math operators <code>+</code>, <code>-</code>, <code>/</code>, and <code>*</code>, as well as <code>x^y</code> for $<code>x^y</code>$.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (12 * 13)</code></pre>\n<p>Why do we need parentheses?</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 12 * 13</code></pre>\n<p>This could mean <code>main = (asText 12) * 13</code> or <code>main = asText (12 * 13)</code>. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers <em>and then</em> convert the <em>output</em> (whatever $<code>12 \\times 13</code>$ is) to an Element. It doesn&#39;t make much sense the other way around (what do you get when you multiply 13 by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain — rather noisily — if we do it that way or leave the parentheses off entirely:</p>\n<div class=output>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">Type error on line 1, column 8 to 22:\n       (asText 12) * 13\n\n  Expected Type: number\n    Actual Type: Graphics.Element.Element</code></pre>\n</div>\n<p>Makes sense: Elm wants a number to multiply by 13, but we&#39;re giving it an Element.</p>\n<h2>Lists</h2>\n<p>Speaking of $<code>12 \\times 13</code>$, I kind of like these numbers that you get when you multiply a number by the one after it. I don&#39;t know why. They&#39;re pretty cool, though. Let&#39;s make a list of them:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText [1 * 2, 2 * 3, 3 * 4, 4 * 5, 5 * 6, 6 * 7]</code></pre>\n<p>Square brackets make a list. We put a comma between each item to tell Elm where one ends and the next begins. We don&#39;t need parentheses because <code>[</code> and <code>]</code> already make it clear where the list starts and ends, so there aren&#39;t two different ways to interpret it.</p>\n<h2>Functions</h2>\n<p>I&#39;m getting pretty tired of typing all these stars. Let&#39;s make a function that does that for me:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">f x = x * (x + 1)</code></pre>\n<p>What does this mean?</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "20:25"))
+                   ,diagram2(w)
+                   ,$Graphics$Element.width(w)($KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText [f 1, f 2, f 3, f 4, f 5, f 6]</code></pre>\n<p>We can use our new <code>f</code> function like we used <code>asText</code> before — just <code>f</code> and then a space and then an input, like <code>2</code> or <code>5</code>.</p>\n<h2>Higher-order functions</h2>\n<p>That was a bit less repetitive, but I still had to type <code>f</code> a bunch of times. If only we could use the list as our input instead:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (f [1, 2, 3, 4, 5, 6])</code></pre>\n<p>Elm does not like that:</p>\n<div class=output>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">Type error on line 3, column 18 to 36:\n       [1,2,3,4,5,6]\n\n  Expected Type: [a]\n    Actual Type: number</code></pre>\n</div>\n<p>It looks like <code>f</code> only works on number inputs, but we&#39;re giving it a list input. We can make <code>f</code> into a function that works on lists, though:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">fList = map f</code></pre>\n<p>This is another definition like <code>main</code>. We&#39;re defining <code>fList</code> to be the same thing as <code>map f</code>. But what&#39;s <code>map f</code>? Well, <code>map</code> is another built-in function and we&#39;re using it on <code>f</code>. So instead of taking <em>numbers</em> as input, <code>map</code> takes <em>functions</em> as input and turns them into different functions as output. Map turns our function <code>f</code> which operates on numbers into a function that operates on <em>lists</em> of numbers, by using <code>f</code> on each number in the list. So when we say:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (fList [1, 2, 3, 4, 5, 6])</code></pre>\n<p>That&#39;s the same thing as <code>main = asText [f 1, f 2, f 3, f 4, f 5, f 6]</code>.</p>\n<p>Now we&#39;ve seen two different ways to define functions: the <code>f x = …</code> way, where we name the input <code>x</code> and then give Elm the output in terms of <code>x</code>; and the <code>fList = …</code> way, where we make a function out of other functions. We don&#39;t need to name the input because <code>map</code> and <code>f</code> together tell Elm what to do with it, so we don&#39;t need to say anything more about it.</p>\n<h2>Challenge Time</h2>\n<p>OK, so my sequence is cool, but that $<code>x^2 + 1</code>$ thing sounds pretty cool too. Why don&#39;t you make a function (call it <code>g</code>, if you like) which calculates the numbers in this sequence:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">$$$\n1 \\times 1 + 1 = 2\n2 \\times 2 + 1 = 5\n3 \\times 3 + 1 = 10\n4 \\times 4 + 1 = 17\n\\ldots</code></pre>\n<p>Then make <code>gList</code> to save yourself some time and show a list of the first ten or so on the screen. It should look something like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "69:42")))
+                   ,$Website$Text.output(w)(A2($List.map,
+                   function (x) {
+                      return Math.pow(x,2) + 1;
+                   },
+                   _L.range(1,10)))
+                   ,A2($Graphics$Element.width,
+                   w,
+                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Signals</h2>\n<p>Text that just sits there on the screen and does nothing isn&#39;t very interesting. But how do we make it change? Enter signals.</p>\n<p>Signals are just things that change over time, like your computer&#39;s clock (a number) or the position of your mouse cursor (a point) or the current temperature (another number). We say that a signal that changes from one number to another is a <em>signal of numbers</em>.</p>\n<p>Up until now, we&#39;ve been telling Elm that <code>main</code> is an Element. Elements don&#39;t change, so if you leave your Elm program running for an hour and come back the screen will look exactly the same. But we can also tell Elm that <code>main</code> is a signal of Elements: a signal that changes from one Element to another over time.</p>\n<p><code>(every second)</code> is a signal of the current time, which updates every second. It looks something like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "120:54"))
+                   ,timeline1(w)
+                   ,A2($Graphics$Element.width,
+                   w,
+                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>That&#39;s not the same representation of the time that we usually see — it&#39;s just a big number that keeps increasing — but let&#39;s use it to try out these signal things.</p>\n<p><code>(every second)</code> is a signal of <em>numbers</em>, though. We have to convert it to a signal of Elements. We could try using <code>asText</code> on it:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (every second)</code></pre>\n<p>But this gives us:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "133:26"))
+                   ,$Website$Text.output(w)($Time.every($Time.second))
+                   ,A2($Graphics$Element.width,
+                   w,
+                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>Not very helpful. <code>asText</code> takes anything and converts it to an Element — not a <em>signal of</em> Elements. Since the values in the signal can change over time, the only thing that stays the same is that it&#39;s a signal — so that&#39;s what <code>asText</code> tells us. What we really want is to use <code>asText</code> on each of the <em>values</em> of <code>(every second)</code> instead the signal itself, like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "143:39"))
+                   ,timeline2(w)
+                   ,A2($Graphics$Element.width,
+                   w,
+                   $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>Luckily, Elm has a function that does exactly this.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">asTextSignal = lift asText</code></pre>\n<p><code>lift</code> is like <code>map</code>: it takes a function as input and outputs a different function that operates on signals as input. This new function takes a <code>Signal</code> as input and outputs a new <code>Signal</code> whose values correspond to the output of the function for each value of the input signal. So now we can use <code>asTextSignal</code> to convert our signal of numbers to a signal of Elements.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asTextSignal (every second)</code></pre>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                   "147:26"))]));
    };
-   var index = A2($Website$Template.bare,
-   "Game Design",
+   var intro = A2($Website$Template.chapter,
+   "Introduction.elm",
    words);
-   var main = index.main;
+   var main = intro.main;
    var title = $Native$Ports.portOut("title",
    function (v) {
       return v;
    },
-   index.title);
+   intro.title);
    _elm.Main.values = {_op: _op
                       ,words: words
-                      ,tableOfContents: tableOfContents
-                      ,index: index
+                      ,diagram1: diagram1
+                      ,diagram2: diagram2
+                      ,timeline1: timeline1
+                      ,timeline2: timeline2
+                      ,intro: intro
                       ,main: main};
    return _elm.Main.values;
+};Elm.KaTeX = Elm.KaTeX || {};
+Elm.KaTeX.make = function (_elm) {
+   "use strict";
+   _elm.KaTeX = _elm.KaTeX || {};
+   if (_elm.KaTeX.values)
+   return _elm.KaTeX.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "KaTeX",
+   $Basics = Elm.Basics.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Native$KaTeX = Elm.Native.KaTeX.make(_elm);
+   var markdown = $Native$KaTeX.markdown;
+   var inline = $Native$KaTeX.math;
+   var block = F2(function (w,
+   formula) {
+      return $Graphics$Element.width(w)($Native$KaTeX.math(_L.append("\\displaystyle {",
+      _L.append(formula,"}"))));
+   });
+   _elm.KaTeX.values = {_op: _op
+                       ,block: block
+                       ,inline: inline
+                       ,markdown: markdown};
+   return _elm.KaTeX.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Figure = Elm.Website.Figure || {};
+Elm.Website.Figure.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Figure = _elm.Website.Figure || {};
+   if (_elm.Website.Figure.values)
+   return _elm.Website.Figure.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Figure",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$Text = Elm.Website.Text.make(_elm);
+   var timeline = F2(function (parts,
+   tw) {
+      return function () {
+         var offsets = A2($List.scanl,
+         F2(function (x,y) {
+            return x + y;
+         }),
+         0)(A2($List.map,
+         $Basics.fst,
+         parts));
+         var total = $List.last(offsets);
+         var time = F2(function (_v0,o) {
+            return function () {
+               switch (_v0.ctor)
+               {case "_Tuple2":
+                  return $Graphics$Element.width($Basics.floor(_v0._0 * $Basics.toFloat(tw) / total))($Text.centered($Text.toText(_U.eq(o,
+                    0) ? "start" : _L.append("after ",
+                    _L.append($String.show(o),
+                    " s")))));}
+               _E.Case($moduleName,
+               "between lines 41 and 43");
+            }();
+         });
+         var tick = F2(function (o,_v4) {
+            return function () {
+               switch (_v4.ctor)
+               {case "_Tuple2":
+                  return A2($List.map,
+                    function (_v8) {
+                       return function () {
+                          switch (_v8.ctor)
+                          {case "_Tuple2":
+                             return {ctor: "_Tuple2"
+                                    ,_0: (o + _v8._0) / total * $Basics.toFloat(tw)
+                                    ,_1: _v8._1};}
+                          _E.Case($moduleName,
+                          "on line 45, column 25 to 56");
+                       }();
+                    },
+                    _L.fromArray([{ctor: "_Tuple2"
+                                  ,_0: 0
+                                  ,_1: 0}
+                                 ,{ctor: "_Tuple2"
+                                  ,_0: _v4._0 / 2
+                                  ,_1: 0}
+                                 ,{ctor: "_Tuple2"
+                                  ,_0: _v4._0 / 2
+                                  ,_1: 5}
+                                 ,{ctor: "_Tuple2"
+                                  ,_0: _v4._0 / 2
+                                  ,_1: -5}
+                                 ,{ctor: "_Tuple2"
+                                  ,_0: _v4._0 / 2
+                                  ,_1: 0}
+                                 ,{ctor: "_Tuple2"
+                                  ,_0: _v4._0
+                                  ,_1: 0}]));}
+               _E.Case($moduleName,
+               "between lines 45 and 52");
+            }();
+         });
+         return A2($Graphics$Element.flow,
+         $Graphics$Element.down,
+         _L.fromArray([$List.foldr1($Graphics$Element.beside)(A3($List.zipWith,
+                      time,
+                      parts,
+                      offsets))
+                      ,A3($Graphics$Collage.collage,
+                      tw,
+                      10,
+                      _L.fromArray([$Graphics$Collage.move({ctor: "_Tuple2"
+                                                           ,_0: 0.5 - $Basics.toFloat(tw) / 2
+                                                           ,_1: 0.5})($Graphics$Collage.traced($Graphics$Collage.solid($Color.black))($Graphics$Collage.path(A2($List.foldr,
+                      F2(function (x,y) {
+                         return _L.append(x,y);
+                      }),
+                      _L.fromArray([]))(A3($List.zipWith,
+                      tick,
+                      offsets,
+                      parts)))))]))
+                      ,$List.foldr1($Graphics$Element.beside)(A2($List.map,
+                      function (_v12) {
+                         return function () {
+                            switch (_v12.ctor)
+                            {case "_Tuple2":
+                               return A2($Graphics$Element.width,
+                                 $Basics.floor(_v12._0 * $Basics.toFloat(tw) / total),
+                                 _v12._1);}
+                            _E.Case($moduleName,
+                            "on line 62, column 22 to 62");
+                         }();
+                      },
+                      parts))]));
+      }();
+   });
+   var diagram = F2(function (parts,
+   tw) {
+      return function () {
+         var space = $Website$Text.code(" ");
+         var spaceW = $Graphics$Element.widthOf(space);
+         var headers = A2($List.map,
+         function ($) {
+            return $Website$Text.code($Basics.fst($));
+         },
+         parts);
+         var header = A2($List.foldr1,
+         $Graphics$Element.beside,
+         headers);
+         var offsets = A2($List.scanl,
+         F2(function (x,y) {
+            return x + y;
+         }),
+         0)(A2($List.map,
+         $Graphics$Element.widthOf,
+         headers));
+         var w = $List.last(offsets);
+         var descs = A2($List.map,
+         function ($) {
+            return $Graphics$Element.width(tw - w - spaceW)($Basics.snd($));
+         },
+         parts);
+         var vOffsets = A2($List.scanl,
+         F2(function (x,y) {
+            return x + y;
+         }),
+         0)(A2($List.map,
+         $Graphics$Element.heightOf,
+         descs));
+         var h = $List.last(vOffsets);
+         var basis = $Graphics$Collage.move({ctor: "_Tuple2"
+                                            ,_0: 0.5 - $Basics.toFloat(w) / 2
+                                            ,_1: 0.5 + $Basics.toFloat(h) / 2});
+         var lines = A4($List.zipWith3,
+         F3(function (off,v,head) {
+            return basis($Graphics$Collage.traced($Graphics$Collage.solid($Color.black))($Graphics$Collage.path(_L.fromArray([{ctor: "_Tuple2"
+                                                                                                                              ,_0: off
+                                                                                                                              ,_1: -1}
+                                                                                                                             ,{ctor: "_Tuple2"
+                                                                                                                              ,_0: off + $Basics.toFloat(head - 11)
+                                                                                                                              ,_1: -1}
+                                                                                                                             ,{ctor: "_Tuple2"
+                                                                                                                              ,_0: off + $Basics.toFloat((head - 11) / 2 | 0)
+                                                                                                                              ,_1: 0}
+                                                                                                                             ,{ctor: "_Tuple2"
+                                                                                                                              ,_0: off + $Basics.toFloat((head - 11) / 2 | 0)
+                                                                                                                              ,_1: -30 - v}
+                                                                                                                             ,{ctor: "_Tuple2"
+                                                                                                                              ,_0: 0
+                                                                                                                              ,_1: -30 - v}]))));
+         }),
+         A2($List.map,
+         $Basics.toFloat,
+         offsets),
+         A2($List.map,
+         $Basics.toFloat,
+         vOffsets),
+         A2($List.map,
+         $Graphics$Element.widthOf,
+         headers));
+         var comments = A2($Graphics$Element.flow,
+         $Graphics$Element.right,
+         _L.fromArray([A2($List.foldr1,
+                      $Graphics$Element.above,
+                      descs)
+                      ,A2($Graphics$Element.spacer,
+                      spaceW,
+                      1)
+                      ,A3($Graphics$Collage.collage,
+                      w,
+                      h,
+                      lines)]));
+         return A2($Graphics$Element.above,
+         A2($Graphics$Element.beside,
+         A2($Graphics$Element.beside,
+         A2($Graphics$Element.spacer,
+         tw - w - spaceW,
+         1),
+         space),
+         header),
+         comments);
+      }();
+   });
+   _elm.Website.Figure.values = {_op: _op
+                                ,diagram: diagram
+                                ,timeline: timeline};
+   return _elm.Website.Figure.values;
 };Elm.Website = Elm.Website || {};
 Elm.Website.Template = Elm.Website.Template || {};
 Elm.Website.Template.make = function (_elm) {
@@ -417,6 +718,45 @@ Elm.Website.Structure.make = function (_elm) {
                                    ,previous: previous
                                    ,next: next};
    return _elm.Website.Structure.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Text = Elm.Website.Text || {};
+Elm.Website.Text.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Text = _elm.Website.Text || {};
+   if (_elm.Website.Text.values)
+   return _elm.Website.Text.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Text",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Text = Elm.Text.make(_elm);
+   var outputText = function ($) {
+      return $Text.monospace($Text.toText($));
+   };
+   var output = function (w) {
+      return function ($) {
+         return $Graphics$Element.width(w)($Text.centered(outputText($String.show($))));
+      };
+   };
+   var code = function ($) {
+      return $Graphics$Element.color(A3($Color.rgb,
+      243,
+      243,
+      243))($Text.leftAligned($Text.monospace($Text.toText($))));
+   };
+   _elm.Website.Text.values = {_op: _op
+                              ,code: code
+                              ,outputText: outputText
+                              ,output: output};
+   return _elm.Website.Text.values;
 };Elm.Website = Elm.Website || {};
 Elm.Website.URL = Elm.Website.URL || {};
 Elm.Website.URL.make = function (_elm) {
