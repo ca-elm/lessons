@@ -17,7 +17,14 @@ Tell Elm to display a number:
 
 What does this mean?
 
-|], diagram1 w, md [markdown|
+|], diagram w
+
+  [ ("main ",   [markdown| `main` tells Elm what to show on the screen. |])
+  , ("= ",      [markdown| `=` tells Elm that `main` is the same thing as the stuff on the right side. We call this process *defining* `main`, so the stuff after `=` is the *definition* of `main`. |])
+  , ("asText ", [markdown| `asText` turns something (like a number) into something else (an Element) that can show up on the screen. It's a function, which means it converts an input to an output. In this case, `100` is the input, and what you see on the screen is the output. Note that what you see on the screen isn't just a number—it's a number in black, 10-point Courier New at the top-left corner of the screen. This is the kind of information that Elements store but numbers do not. <p>When we want to use a function, we write the function and then its input, separated by a space. This is called *applying* the function. |])
+  , ("12 ",     [markdown| `100` is just a number. When we write a number the way we normally would, Elm gives us a number. |])
+
+  ], md [markdown|
 
 You can put any number you like there:
 
@@ -66,7 +73,13 @@ I'm getting pretty tired of typing all these stars. Let's make a function that d
 
 What does this mean?
 
-|], diagram2 w, md [markdown|
+|], diagram w
+
+  [ ("f ", [markdown| `f` is the name of the function. We need a name (like `asText`) so that we can use it later. |])
+  , ("x ", [markdown| `x` is the input to `f`. Or, more accurately, it's a name we use for the input to `f`. Whenever we use the function, Elm replaces every `x` in the definition of `f` (remember, that's the stuff after the `=` sign) with the input we give it, like `12` or `5`. |])
+  , ("= x * (x + 1) ", Math.markdown [markdown| `x * (x + 1)` is more of the stuff we've seen before, except now it has an `x` in it. We need parentheses around `x + 1` because Elm goes by the same order of operations we do—multiplication and division, then addition and subtraction. We don't want $`x^2 + 1`$; we want $`x \times (x + 1)`$. |])
+
+  ], md [markdown|
 
     main = asText [f 1, f 2, f 3, f 4, f 5, f 6]
 
@@ -130,7 +143,7 @@ Up until now, we've been telling Elm that `main` is an Element. Elements don't c
 
 `(every second)` is a signal of the current time, which updates every second. It looks something like this:
 
-|], timeline1 w, md [markdown|
+|], timeline w <| map (\t -> (1, Math.block w << show <| 173081 + t * 1001)) [1 .. 4], md [markdown|
 
 That's not the same representation of the time that we usually see—it's just a big number that keeps increasing—but let's use it to try out these signal things.
 
@@ -144,7 +157,14 @@ But this gives us:
 
 Not very helpful. `asText` takes anything and converts it to an Element—not a *signal of* Elements. Since the values in the signal can change over time, the only thing that stays the same is that it's a signal—so that's what `asText` tells us. What we really want is to use `asText` on each of the *values* of `(every second)` instead the signal itself, like this:
 
-|], timeline2 w, md [markdown|
+|], timeline w
+  [ (1, [markdown|<div style="text-align:center"><code>asText 173081</code></div>|])
+  , (1, [markdown|<div style="text-align:center"><code>asText 174082</code></div>|])
+  , (1, [markdown|<div style="text-align:center"><code>asText 175083</code></div>|])
+  , (1, [markdown|<div style="text-align:center"><code>asText 176084</code></div>|])
+-- timeline w <| map (\t -> (1, code <| "asText " ++ show (173081 + t * 1001))) [1 .. 4]
+
+  ], md [markdown|
 
 Luckily, Elm has a function that does exactly this.
 
@@ -156,21 +176,21 @@ Luckily, Elm has a function that does exactly this.
 
 Those numbers are still too big, though. Let's use the `count` function to turn `(every second)` into something more manageable. `count` takes a signal as input and outputs a signal of the number of times that signal has changed, so `(count (every second))` starts at zero and increases by $`1`$ each second:
 
-|], timeline3 w, md [markdown|
+|], timeline w <| map (\t -> (1, Math.block w <| show t)) [0 .. 3], md [markdown|
 
 `lift` works on functions we define, too:
 
     main = asTextSignal (fSignal (count (every second)))
     fSignal = lift f
 
-|], timeline4 w, md [markdown|
+|], timeline w <| map (\t -> (1, output w <| t * (t + 1))) [0 .. 3], md [markdown|
 
 Challenge time
 --------------
 
 I like cubes. Do you like cubes? Make a signal of successive cubes and then display it. You should get something like this:
 
-|], timeline5 w, md [markdown|
+|], timeline w <| map (\t -> (1, output w <| t * t * t)) [0 .. 3], md [markdown|
 
 Currying
 --------
@@ -205,33 +225,12 @@ or:
 
     main = lift asText (lift ((*) 3) (count (every second)))
 
+We can define our own curried functions by adding more input names to their definitions:
+
+    average x y = (x + y) / 2
+    main = asText (average 4 10)
+
 |]]
-
-diagram1 = diagram
-  [ ("main ",   [markdown| `main` tells Elm what to show on the screen. |])
-  , ("= ",      [markdown| `=` tells Elm that `main` is the same thing as the stuff on the right side. We call this process *defining* `main`, so the stuff after `=` is the *definition* of `main`. |])
-  , ("asText ", [markdown| `asText` turns something (like a number) into something else (an Element) that can show up on the screen. It's a function, which means it converts an input to an output. In this case, `100` is the input, and what you see on the screen is the output. Note that what you see on the screen isn't just a number—it's a number in black, 10-point Courier New at the top-left corner of the screen. This is the kind of information that Elements store but numbers do not. <p>When we want to use a function, we write the function and then its input, separated by a space. This is called *applying* the function. |])
-  , ("12 ",     [markdown| `100` is just a number. When we write a number the way we normally would, Elm gives us a number. |])
-  ]
-
-diagram2 = diagram
-  [ ("f ",             [markdown| `f` is the name of the function. We need a name (like `asText`) so that we can use it later. |])
-  , ("x ",             [markdown| `x` is the input to `f`. Or, more accurately, it's a name we use for the input to `f`. Whenever we use the function, Elm replaces every `x` in the definition of `f` (remember, that's the stuff after the `=` sign) with the input we give it, like `12` or `5`. |])
-  , ("= x * (x + 1) ", Math.markdown [markdown| `x * (x + 1)` is more of the stuff we've seen before, except now it has an `x` in it. We need parentheses around `x + 1` because Elm goes by the same order of operations we do—multiplication and division, then addition and subtraction. We don't want $`x^2 + 1`$; we want $`x \times (x + 1)`$. |])
-  ]
-
-timeline1 w = timeline (map (\t -> (1, Math.block w << show <| 173081 + t * 1001)) [1 .. 4]) w
-timeline2 = timeline
-  [ (1, [markdown|<div style="text-align:center"><code>asText 173081</code></div>|])
-  , (1, [markdown|<div style="text-align:center"><code>asText 174082</code></div>|])
-  , (1, [markdown|<div style="text-align:center"><code>asText 175083</code></div>|])
-  , (1, [markdown|<div style="text-align:center"><code>asText 176084</code></div>|])
-  ]
---timeline2 = timeline <| map (\t -> (1, code <| "asText " ++ show (173081 + t * 1001))) [1 .. 4]
-
-timeline3 w = timeline (map (\t -> (1, Math.block w <| show t)) [0 .. 3]) w
-timeline4 w = timeline (map (\t -> (1, output w <| t * (t + 1))) [0 .. 3]) w
-timeline5 w = timeline (map (\t -> (1, output w <| t * t * t)) [0 .. 3]) w
 
 intro = chapter "Introduction.elm" words
 main = intro.main

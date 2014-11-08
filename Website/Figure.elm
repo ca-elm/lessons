@@ -2,8 +2,8 @@ module Website.Figure where
 
 import Website.Text (code)
 
-diagram : [(String, Element)] -> Int -> Element
-diagram parts tw =
+diagram : Int -> [(String, Element)] -> Element
+diagram tw parts =
   let headers = map (code << fst) parts
       space = code " "
       spaceW = widthOf space
@@ -33,8 +33,8 @@ diagram parts tw =
         ]
   in  spacer (tw - w - spaceW) 1 `beside` space `beside` header `above` comments
 
-timeline : [(Float, Element)] -> Int -> Element
-timeline parts tw =
+timeline : Int -> [(Float, Element)] -> Element
+timeline tw parts =
   let offsets = scanl (+) 0 <| map fst parts
       total = last offsets
       time (f,_) o =
