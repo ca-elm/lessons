@@ -2,6 +2,11 @@ body {
   font: 16px/1.5 Helvetica Neue, Helvetica, Arial, sans-serif !important;
 }
 
+.katex {
+  font-size: 1.21em;
+  line-height: 1.2;
+}
+
 h1 {
   font-size: 4em;
   font-weight: 200;
