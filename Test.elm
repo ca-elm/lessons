@@ -12,7 +12,7 @@ This is another chapter. Here's some math:
     $$$
     f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
 
-Cool. But not as cool as $`x^2 + 1`$.
+Cool. But not as cool as $`20 > x^2 + 1 \leq 100`$.
 
 |]]
 
