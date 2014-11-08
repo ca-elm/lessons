@@ -126,57 +126,94 @@ Elm.Main.make = function (_elm) {
    $Website$Figure = Elm.Website.Figure.make(_elm),
    $Website$Template = Elm.Website.Template.make(_elm),
    $Website$Text = Elm.Website.Text.make(_elm);
+   var timeline5 = function (w) {
+      return A2($Website$Figure.timeline,
+      A2($List.map,
+      function (t) {
+         return {ctor: "_Tuple2"
+                ,_0: 1
+                ,_1: $Website$Text.output(w)(t * t * t)};
+      },
+      _L.range(0,3)),
+      w);
+   };
+   var timeline4 = function (w) {
+      return A2($Website$Figure.timeline,
+      A2($List.map,
+      function (t) {
+         return {ctor: "_Tuple2"
+                ,_0: 1
+                ,_1: $Website$Text.output(w)(t * (t + 1))};
+      },
+      _L.range(0,3)),
+      w);
+   };
+   var timeline3 = function (w) {
+      return A2($Website$Figure.timeline,
+      A2($List.map,
+      function (t) {
+         return {ctor: "_Tuple2"
+                ,_0: 1
+                ,_1: $KaTeX.block(w)($String.show(t))};
+      },
+      _L.range(0,3)),
+      w);
+   };
    var timeline2 = $Website$Figure.timeline(_L.fromArray([{ctor: "_Tuple2"
                                                           ,_0: 1
-                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 173081</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                          "173:9")}
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><div style=\"text-align:center\"><code>asText 173081</code></div>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "225:9")}
                                                          ,{ctor: "_Tuple2"
                                                           ,_0: 1
-                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 174082</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                          "174:9")}
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><div style=\"text-align:center\"><code>asText 174082</code></div>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "226:9")}
                                                          ,{ctor: "_Tuple2"
                                                           ,_0: 1
-                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 175083</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                          "175:9")}
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><div style=\"text-align:center\"><code>asText 175083</code></div>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "227:9")}
                                                          ,{ctor: "_Tuple2"
                                                           ,_0: 1
-                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText 176084</code></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                          "176:9")}]));
-   var timeline1 = $Website$Figure.timeline(A2($List.map,
-   function (t) {
-      return {ctor: "_Tuple2"
-             ,_0: 1
-             ,_1: $Text.centered($Text.toText($String.show(173081 + t * 1001)))};
-   },
-   _L.range(1,4)));
+                                                          ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><div style=\"text-align:center\"><code>asText 176084</code></div>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                          "228:9")}]));
+   var timeline1 = function (w) {
+      return A2($Website$Figure.timeline,
+      A2($List.map,
+      function (t) {
+         return {ctor: "_Tuple2"
+                ,_0: 1
+                ,_1: $KaTeX.block(w)($String.show(173081 + t * 1001))};
+      },
+      _L.range(1,4)),
+      w);
+   };
    var diagram2 = $Website$Figure.diagram(_L.fromArray([{ctor: "_Tuple2"
                                                         ,_0: "f "
                                                         ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>f</code> is the name of the function. We need a name (like <code>asText</code>) so that we can use it later.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "166:24")}
+                                                        "218:24")}
                                                        ,{ctor: "_Tuple2"
                                                         ,_0: "x "
-                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>x</code> is the input to <code>f</code>. Or, more accurately, it&#39;s a name we use for the input to <code>f</code>. Whenever we use the function, Elm replaces every <code>x</code> in the definition of <code>f</code> (remember, that&#39;s the stuff after the <code>=</code> sign) with the input we give it, like 12 or 5.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "167:24")}
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>x</code> is the input to <code>f</code>. Or, more accurately, it&#39;s a name we use for the input to <code>f</code>. Whenever we use the function, Elm replaces every <code>x</code> in the definition of <code>f</code> (remember, that&#39;s the stuff after the <code>=</code> sign) with the input we give it, like <code>12</code> or <code>5</code>.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "219:24")}
                                                        ,{ctor: "_Tuple2"
                                                         ,_0: "= x * (x + 1) "
-                                                        ,_1: $KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>x * (x + 1)</code> is more of the stuff we&#39;ve seen before, except now it has an <code>x</code> in it. We need parentheses around <code>x + 1</code> because Elm goes by the same order of operations we do — multiplication and division, then addition and subtraction. We don&#39;t want $<code>x^2 + 1</code>$; we want $<code>x \\times (x + 1)</code>$.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "168:38"))}]));
+                                                        ,_1: $KaTeX.markdown($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>x * (x + 1)</code> is more of the stuff we&#39;ve seen before, except now it has an <code>x</code> in it. We need parentheses around <code>x + 1</code> because Elm goes by the same order of operations we do—multiplication and division, then addition and subtraction. We don&#39;t want $<code>x^2 + 1</code>$; we want $<code>x \\times (x + 1)</code>$.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "220:38"))}]));
    var diagram1 = $Website$Figure.diagram(_L.fromArray([{ctor: "_Tuple2"
                                                         ,_0: "main "
                                                         ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>main</code> tells Elm what to show on the screen.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "159:17")}
+                                                        "211:17")}
                                                        ,{ctor: "_Tuple2"
                                                         ,_0: "= "
                                                         ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>=</code> tells Elm that <code>main</code> is the same thing as the stuff on the right side. We call this process <em>defining</em> <code>main</code>, so the stuff after <code>=</code> is the <em>definition</em> of <code>main</code>.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "160:17")}
+                                                        "212:17")}
                                                        ,{ctor: "_Tuple2"
                                                         ,_0: "asText "
-                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText</code> turns something (like a number) into something else (an Element) that can show up on the screen. It&#39;s a function, which means it converts an input to an output. In this case, <code>100</code> is the input, and what you see on the screen is the output. Note that what you see on the screen isn&#39;t just a number — it&#39;s a number in black, 10-point Courier New at the top-left corner of the screen. This is the kind of information that Elements store but numbers do not. <p>When we want to use a function, we write the function and then its input, separated by a space. This is called <em>applying</em> the function.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "161:17")}
+                                                        ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>asText</code> turns something (like a number) into something else (an Element) that can show up on the screen. It&#39;s a function, which means it converts an input to an output. In this case, <code>100</code> is the input, and what you see on the screen is the output. Note that what you see on the screen isn&#39;t just a number—it&#39;s a number in black, 10-point Courier New at the top-left corner of the screen. This is the kind of information that Elements store but numbers do not. <p>When we want to use a function, we write the function and then its input, separated by a space. This is called <em>applying</em> the function.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                                                        "213:17")}
                                                        ,{ctor: "_Tuple2"
                                                         ,_0: "12 "
                                                         ,_1: $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>100</code> is just a number. When we write a number the way we normally would, Elm gives us a number.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                                                        "162:17")}]));
+                                                        "214:17")}]));
    var words = function (w) {
       return function () {
          var md = function ($) {
@@ -187,10 +224,10 @@ Elm.Main.make = function (_elm) {
          _L.fromArray([md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h1>An Introduction to Elm</h1>\n<h2>Displaying things</h2>\n<p>Tell Elm to display a number:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 12</code></pre>\n<p>What does this mean?</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
                       "6:62"))
                       ,diagram1(w)
-                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>You can put any number you like there:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 777</code></pre>\n<h2>Math</h2>\n<p>I can never remember what $<code>12 \\times 13</code>$ is, so let&#39;s get Elm to do it for me. Elm understands the normal math operators <code>+</code>, <code>-</code>, <code>/</code>, and <code>*</code>, as well as <code>x^y</code> for $<code>x^y</code>$.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (12 * 13)</code></pre>\n<p>Why do we need parentheses?</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 12 * 13</code></pre>\n<p>This could mean <code>main = (asText 12) * 13</code> or <code>main = asText (12 * 13)</code>. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers <em>and then</em> convert the <em>output</em> (whatever $<code>12 \\times 13</code>$ is) to an Element. It doesn&#39;t make much sense the other way around (what do you get when you multiply 13 by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain — rather noisily — if we do it that way or leave the parentheses off entirely:</p>\n<div class=output>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">Type error on line 1, column 8 to 22:\n       (asText 12) * 13\n\n  Expected Type: number\n    Actual Type: Graphics.Element.Element</code></pre>\n</div>\n<p>Makes sense: Elm wants a number to multiply by 13, but we&#39;re giving it an Element.</p>\n<h2>Lists</h2>\n<p>Speaking of $<code>12 \\times 13</code>$, I kind of like these numbers that you get when you multiply a number by the one after it. I don&#39;t know why. They&#39;re pretty cool, though. Let&#39;s make a list of them:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText [1 * 2, 2 * 3, 3 * 4, 4 * 5, 5 * 6, 6 * 7]</code></pre>\n<p>Square brackets make a list. We put a comma between each item to tell Elm where one ends and the next begins. We don&#39;t need parentheses because <code>[</code> and <code>]</code> already make it clear where the list starts and ends, so there aren&#39;t two different ways to interpret it.</p>\n<h2>Functions</h2>\n<p>I&#39;m getting pretty tired of typing all these stars. Let&#39;s make a function that does that for me:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">f x = x * (x + 1)</code></pre>\n<p>What does this mean?</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>You can put any number you like there:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 777</code></pre>\n<h2>Math</h2>\n<p>I can never remember what $<code>12 \\times 13</code>$ is, so let&#39;s get Elm to do it for me. Elm understands the normal math operators <code>+</code>, <code>-</code>, <code>/</code>, and <code>*</code>, as well as <code>x^y</code> for $<code>x^y</code>$.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (12 * 13)</code></pre>\n<p>Why do we need parentheses?</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText 12 * 13</code></pre>\n<p>This could mean <code>main = (asText 12) * 13</code> or <code>main = asText (12 * 13)</code>. Elm always chooses the first one, so we have to tell it to use the second one because we want to multiply the numbers <em>and then</em> convert the <em>output</em> (whatever $<code>12 \\times 13</code>$ is) to an Element. It doesn&#39;t make much sense the other way around (what do you get when you multiply $<code>13</code>$ by 10-point black Courier New text in the top-left corner of the screen?), which is why Elm will complain—rather noisily—if we do it that way or leave the parentheses off entirely:</p>\n<div class=output>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">Type error on line 1, column 8 to 22:\n       (asText 12) * 13\n\n  Expected Type: number\n    Actual Type: Graphics.Element.Element</code></pre>\n</div>\n<p>Makes sense: Elm wants a number to multiply by $<code>13</code>$, but we&#39;re giving it an Element.</p>\n<h2>Lists</h2>\n<p>Speaking of $<code>12 \\times 13</code>$, I kind of like these numbers that you get when you multiply a number by the one after it. I don&#39;t know why. They&#39;re pretty cool, though. Let&#39;s make a list of them:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText [1 * 2, 2 * 3, 3 * 4, 4 * 5, 5 * 6, 6 * 7]</code></pre>\n<p>Square brackets make a list. We put a comma between each item to tell Elm where one ends and the next begins. We don&#39;t need parentheses because <code>[</code> and <code>]</code> already make it clear where the list starts and ends, so there aren&#39;t two different ways to interpret it.</p>\n<h2>Functions</h2>\n<p>I&#39;m getting pretty tired of typing all these stars. Let&#39;s make a function that does that for me:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">f x = x * (x + 1)</code></pre>\n<p>What does this mean?</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
                       "20:20"))
                       ,diagram2(w)
-                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText [f 1, f 2, f 3, f 4, f 5, f 6]</code></pre>\n<p>We can use our new <code>f</code> function like we used <code>asText</code> before — just <code>f</code> and then a space and then an input, like <code>2</code> or <code>5</code>.</p>\n<h2>Higher-order functions</h2>\n<p>That was a bit less repetitive, but I still had to type <code>f</code> a bunch of times. If only we could use the list as our input instead:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (f [1, 2, 3, 4, 5, 6])</code></pre>\n<p>Elm does not like that:</p>\n<div class=output>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">Type error on line 3, column 18 to 36:\n       [1,2,3,4,5,6]\n\n  Expected Type: [a]\n    Actual Type: number</code></pre>\n</div>\n<p>It looks like <code>f</code> only works on number inputs, but we&#39;re giving it a list input. We can make <code>f</code> into a function that works on lists, though:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">fList = map f</code></pre>\n<p>This is another definition like <code>main</code>. We&#39;re defining <code>fList</code> to be the same thing as <code>map f</code>. But what&#39;s <code>map f</code>? Well, <code>map</code> is another built-in function and we&#39;re using it on <code>f</code>. So instead of taking <em>numbers</em> as input, <code>map</code> takes <em>functions</em> as input and turns them into different functions as output. Map turns our function <code>f</code> which operates on numbers into a function that operates on <em>lists</em> of numbers, by using <code>f</code> on each number in the list. So when we say:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (fList [1, 2, 3, 4, 5, 6])</code></pre>\n<p>That&#39;s the same thing as <code>main = asText [f 1, f 2, f 3, f 4, f 5, f 6]</code>.</p>\n<p>Now we&#39;ve seen two different ways to define functions: the <code>f x = …</code> way, where we name the input <code>x</code> and then give Elm the output in terms of <code>x</code>; and the <code>fList = …</code> way, where we make a function out of other functions. We don&#39;t need to name the input because <code>map</code> and <code>f</code> together tell Elm what to do with it, so we don&#39;t need to say anything more about it.</p>\n<h2>Challenge Time</h2>\n<p>OK, so my sequence is cool, but that $<code>x^2 + 1</code>$ thing sounds pretty cool too. Why don&#39;t you make a function (call it <code>g</code>, if you like) which calculates the numbers in this sequence:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">$$$\n1 \\times 1 + 1 = 2\n2 \\times 2 + 1 = 5\n3 \\times 3 + 1 = 10\n4 \\times 4 + 1 = 17\n\\ldots</code></pre>\n<p>Then make <code>gList</code> to save yourself some time and show a list of the first ten or so on the screen. It should look something like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText [f 1, f 2, f 3, f 4, f 5, f 6]</code></pre>\n<p>We can use our new <code>f</code> function like we used <code>asText</code> before—just <code>f</code> and then a space and then an input, like <code>2</code> or <code>5</code>.</p>\n<h2>Higher-order functions</h2>\n<p>That was a bit less repetitive, but I still had to type <code>f</code> a bunch of times. If only we could use the list as our input instead:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (f [1, 2, 3, 4, 5, 6])</code></pre>\n<p>Elm does not like that:</p>\n<div class=output>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">Type error on line 3, column 18 to 36:\n       [1,2,3,4,5,6]\n\n  Expected Type: [a]\n    Actual Type: number</code></pre>\n</div>\n<p>It looks like <code>f</code> only works on number inputs, but we&#39;re giving it a list input. We can make <code>f</code> into a function that works on lists, though:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">fList = map f</code></pre>\n<p>This is another definition like <code>main</code>. We&#39;re defining <code>fList</code> to be the same thing as <code>map f</code>. But what&#39;s <code>map f</code>? Well, <code>map</code> is another built-in function and we&#39;re using it on <code>f</code>. So instead of taking <em>numbers</em> as input, <code>map</code> takes <em>functions</em> as input and turns them into different functions as output. Map turns our function <code>f</code> which operates on numbers into a function that operates on <em>lists</em> of numbers, by using <code>f</code> on each number in the list. So when we say:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (fList [1, 2, 3, 4, 5, 6])</code></pre>\n<p>That&#39;s the same thing as <code>main = asText [f 1, f 2, f 3, f 4, f 5, f 6]</code>.</p>\n<p>Now we&#39;ve seen two different ways to define functions: the <code>f x = …</code> way, where we name the input <code>x</code> and then give Elm the output in terms of <code>x</code>; and the <code>fList = …</code> way, where we make a function out of other functions. We don&#39;t need to name the input because <code>map</code> and <code>f</code> together tell Elm what to do with it, so we don&#39;t need to say anything more about it.</p>\n<h2>Challenge time</h2>\n<p>OK, so my sequence is cool, but that $<code>x^2 + 1</code>$ thing sounds pretty cool too. Why don&#39;t you make a function (call it <code>g</code>, if you like) which calculates the numbers in this sequence:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">$$$\n1 \\times 1 + 1 = 2\n2 \\times 2 + 1 = 5\n3 \\times 3 + 1 = 10\n4 \\times 4 + 1 = 17\n\\ldots</code></pre>\n<p>Then make <code>gList</code> to save yourself some time and show a list of the first ten or so on the screen. It should look something like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
                       "69:20"))
                       ,$Website$Text.output(w)(A2($List.map,
                       function (x) {
@@ -200,14 +237,23 @@ Elm.Main.make = function (_elm) {
                       ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Signals</h2>\n<p>Text that just sits there on the screen and does nothing isn&#39;t very interesting. But how do we make it change? Enter signals.</p>\n<p>Signals are just things that change over time, like your computer&#39;s clock (a number) or the position of your mouse cursor (a point) or the current temperature (another number). We say that a signal that changes from one number to another is a <em>signal of numbers</em>.</p>\n<p>Up until now, we&#39;ve been telling Elm that <code>main</code> is an Element. Elements don&#39;t change, so if you leave your Elm program running for an hour and come back the screen will look exactly the same. But we can also tell Elm that <code>main</code> is a signal of Elements: a signal that changes from one Element to another over time.</p>\n<p><code>(every second)</code> is a signal of the current time, which updates every second. It looks something like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
                       "120:49"))
                       ,timeline1(w)
-                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>That&#39;s not the same representation of the time that we usually see — it&#39;s just a big number that keeps increasing — but let&#39;s use it to try out these signal things.</p>\n<p><code>(every second)</code> is a signal of <em>numbers</em>, though. We have to convert it to a signal of Elements. We could try using <code>asText</code> on it:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (every second)</code></pre>\n<p>But this gives us:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>That&#39;s not the same representation of the time that we usually see—it&#39;s just a big number that keeps increasing—but let&#39;s use it to try out these signal things.</p>\n<p><code>(every second)</code> is a signal of <em>numbers</em>, though. We have to convert it to a signal of Elements. We could try using <code>asText</code> on it:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (every second)</code></pre>\n<p>But this gives us:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
                       "133:21"))
                       ,$Website$Text.output(w)($Time.every($Time.second))
-                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>Not very helpful. <code>asText</code> takes anything and converts it to an Element — not a <em>signal of</em> Elements. Since the values in the signal can change over time, the only thing that stays the same is that it&#39;s a signal — so that&#39;s what <code>asText</code> tells us. What we really want is to use <code>asText</code> on each of the <em>values</em> of <code>(every second)</code> instead the signal itself, like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>Not very helpful. <code>asText</code> takes anything and converts it to an Element—not a <em>signal of</em> Elements. Since the values in the signal can change over time, the only thing that stays the same is that it&#39;s a signal—so that&#39;s what <code>asText</code> tells us. What we really want is to use <code>asText</code> on each of the <em>values</em> of <code>(every second)</code> instead the signal itself, like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
                       "143:34"))
                       ,timeline2(w)
-                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>Luckily, Elm has a function that does exactly this.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">asTextSignal = lift asText</code></pre>\n<p><code>lift</code> is like <code>map</code>: it takes a function as input and outputs a different function that operates on signals as input. This new function takes a <code>Signal</code> as input and outputs a new <code>Signal</code> whose values correspond to the output of the function for each value of the input signal. So now we can use <code>asTextSignal</code> to convert our signal of numbers to a signal of Elements.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asTextSignal (every second)</code></pre>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-                      "147:21"))]));
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>Luckily, Elm has a function that does exactly this.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">asTextSignal = lift asText</code></pre>\n<p><code>lift</code> is like <code>map</code>: it takes a function as input and outputs a different function that operates on signals. This new function takes a <code>Signal</code> as input and outputs a new <code>Signal</code> whose values correspond to the output of the function for each value of the input signal. So now we can use <code>asTextSignal</code> to convert our signal of numbers to a signal of Elements.</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asTextSignal (every second)</code></pre>\n<p>Those numbers are still too big, though. Let&#39;s use the <code>count</code> function to turn <code>(every second)</code> into something more manageable. <code>count</code> takes a signal as input and outputs a signal of the number of times that signal has changed, so <code>(count (every second))</code> starts at zero and increases by $<code>1</code>$ each second:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      "147:21"))
+                      ,timeline3(w)
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p><code>lift</code> works on functions we define, too:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asTextSignal (fSignal (count (every second)))\nfSignal = lift f</code></pre>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      "159:21"))
+                      ,timeline4(w)
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Challenge time</h2>\n<p>I like cubes. Do you like cubes? Make a signal of successive cubes and then display it. You should get something like this:</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      "166:21"))
+                      ,timeline5(w)
+                      ,md($Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Currying</h2>\n<p>Hold on. I&#39;m done typing <code>fSignal = lift f</code> and <code>gSignal = lift g</code> and <code>asTextSignal = lift asText</code> and all those other function definitions just to use them once in my code. Since we&#39;re telling Elm that the stuff on the left side is the same as the stuff on the right side, why don&#39;t we just use the stuff on the right side without giving it a new name?</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = (lift asText) (count (every second))</code></pre>\n<p>Cool. <code>(lift asText)</code> gives us a function as output, and we use that function right away on <code>(count (every second))</code>. This works for <code>map</code> too:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText ((map f) [1, 2, 3, 4, 5, 6])</code></pre>\n<p>In fact, this is so common that Elm lets us get rid of the parentheses:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (map f [1, 2, 3, 4, 5, 6])</code></pre>\n<p>And now it looks like we&#39;re using <code>map</code> on <code>f</code> <em>and</em> the list instead of just on <code>f</code>—like <code>map</code> takes <em>two</em> things as input and then outputs a new list. The thing is, those two ways of looking at <code>map</code> are the same in Elm: A function that takes two inputs really just takes the first one and outputs a function; this new function takes the second one and outputs the final result of the function. This is called <em>currying</em> after Haskell Curry.</p>\n<p>We&#39;ve actually seen a lot of these pretend-two-input-functions before. They just didn&#39;t look like functions at the time, because they have weird names like <code>+</code> and <code>-</code> and <code>*</code>. When a function has a name like that, Elm treats it as an <em>infix operator</em>: it goes between its two inputs instead of before them. If you want to use an infix operator like a normal function, you can type parentheses around the operator name:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText ((+) 3 4)</code></pre>\n<p>Remember that this is the same thing as:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (((+) 3) 4)</code></pre>\n<p>In other words, <code>(+)</code> takes a number and returns a <em>function</em> that adds that number to its input. We can use these &quot;adding functions&quot; like we would any other kind of function, for example:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = asText (map ((+) 3) [1, 2, 3, 4, 5])</code></pre>\n<p>or:</p>\n<pre class=\"sourceCode\"><code class=\"sourceCode\">main = lift asText (lift ((*) 3) (count (every second)))</code></pre>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+                      "173:21"))]));
       }();
    };
    var intro = A2($Website$Template.chapter,
@@ -225,6 +271,9 @@ Elm.Main.make = function (_elm) {
                       ,diagram2: diagram2
                       ,timeline1: timeline1
                       ,timeline2: timeline2
+                      ,timeline3: timeline3
+                      ,timeline4: timeline4
+                      ,timeline5: timeline5
                       ,intro: intro
                       ,main: main};
    return _elm.Main.values;
