@@ -103,7 +103,7 @@ That's the same thing as `main = asText [f 1, f 2, f 3, f 4, f 5, f 6]`.
 
 Now we've seen two different ways to define functions: the `f x = …` way, where we name the input `x` and then give Elm the output in terms of `x`; and the `fList = …` way, where we make a function out of other functions. We don't need to name the input because `map` and `f` together tell Elm what to do with it, so we don't need to say anything more about it.
 
-Challenge Time
+Challenge time
 --------------
 
 OK, so my sequence is cool, but that $`x^2 + 1`$ thing sounds pretty cool too. Why don't you make a function (call it `g`, if you like) which calculates the numbers in this sequence:
@@ -150,9 +150,30 @@ Luckily, Elm has a function that does exactly this.
 
     asTextSignal = lift asText
 
-`lift` is like `map`: it takes a function as input and outputs a different function that operates on signals as input. This new function takes a `Signal` as input and outputs a new `Signal` whose values correspond to the output of the function for each value of the input signal. So now we can use `asTextSignal` to convert our signal of numbers to a signal of Elements.
+`lift` is like `map`: it takes a function as input and outputs a different function that operates on signals. This new function takes a `Signal` as input and outputs a new `Signal` whose values correspond to the output of the function for each value of the input signal. So now we can use `asTextSignal` to convert our signal of numbers to a signal of Elements.
 
     main = asTextSignal (every second)
+
+Those numbers are still too big, though. Let's use the `count` function to turn `(every second)` into something more manageable. `count` takes a signal as input and outputs a signal of the number of times that signal has changed, so `(count (every second))` starts at zero and increases by $`1`$ each second:
+
+|], timeline3 w, md [markdown|
+
+`lift` works on functions we define, too:
+
+    main = asTextSignal (fSignal (count (every second)))
+    fSignal = lift f
+
+|], timeline4 w, md [markdown|
+
+Challenge time
+--------------
+
+I like cubes. Do you like cubes? Make a signal of successive cubes. It should look something like this:
+
+|], timeline5 w, md [markdown|
+
+<p></p>
+
 |]]
 
 diagram1 = diagram
@@ -176,6 +197,10 @@ timeline2 = timeline
   , (1, [markdown|<div style="text-align:center"><code>asText 176084</code></div>|])
   ]
 --timeline2 = timeline <| map (\t -> (1, code <| "asText " ++ show (173081 + t * 1001))) [1 .. 4]
+
+timeline3 w = timeline (map (\t -> (1, Math.block w <| show t)) [0 .. 3]) w
+timeline4 w = timeline (map (\t -> (1, output w <| t * (t + 1))) [0 .. 3]) w
+timeline5 w = timeline (map (\t -> (1, output w <| t * t * t)) [0 .. 3]) w
 
 intro = chapter "Introduction.elm" words
 main = intro.main
