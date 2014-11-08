@@ -168,7 +168,7 @@ diagram2 = diagram
   , ("= x * (x + 1) ", Math.markdown [markdown| `x * (x + 1)` is more of the stuff we've seen before, except now it has an `x` in it. We need parentheses around `x + 1` because Elm goes by the same order of operations we do—multiplication and division, then addition and subtraction. We don't want $`x^2 + 1`$; we want $`x \times (x + 1)`$. |])
   ]
 
-timeline1 = timeline <| map (\t -> (1, centered << toText << show <| 173081 + t * 1001)) [1 .. 4]
+timeline1 w = timeline (map (\t -> (1, Math.block w << show <| 173081 + t * 1001)) [1 .. 4]) w
 timeline2 = timeline
   [ (1, [markdown|`asText 173081`|])
   , (1, [markdown|`asText 174082`|])
