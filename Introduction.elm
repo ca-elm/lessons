@@ -230,6 +230,48 @@ We can define our own curried functions by adding more input names to their defi
     average x y = (x + y) / 2
     main = asText (average 4 10)
 
+Currying in Mathematics
+-----------------------
+
+This is well and good, but it doesn't seem to fit nicely with what I've learned in math class! In math, we often see functions as in out machines. They take one input, and return one output. Now that we have more inputs everything is all messed up! As it turns out, currying is actually a mathematical idea! In math, we'd think of it like this.
+
+Say we have the elm function:
+
+    divide x y = y / x
+
+in math notation, we would write this as:
+
+    $$$
+    divide(x, y) = \frac{y}{x}
+
+Normally, you would just plug numbers into the equation, but we we want to explore currying. Let's try splitting up this function into two different functions. Let's say we want to find $`divide(2, 3)`$:
+
+First, we can take our function and treat it as if it's a function with only x (we'll call it $`h(x)`$), and plug in two, our value for x:
+
+    $$$
+    h(x) = \frac{y}{x}
+
+    h(2) = \frac{y}{2}
+
+But wait! The result contains another variable! That can't be right. Well, what if we use this new expression like *another function*? Let's call this one $`g(y)`$:
+
+    $$$
+    g(y) = \frac{y}{2}
+
+    g(3) = \frac{3}{2}
+
+Hey look! $`g(3)`$ gives us $`3 / 2`$ which is exactly what we were looking for.
+
+Let's recap. When elm is given:
+
+|], diagram w
+
+  [ ("divide ",   [markdown| `divide` Elm starts with the function divide, creating what we called h(x) |])
+  , ("2 ", [markdown| `2` It then plugs two into h(x), resulting in *another* function which we called g(y) |])
+  , ("3 ",      [markdown| `3` Finally, it will take g(y), and plug in three. |])
+
+  ], md [markdown|
+
 |]]
 
 intro = chapter "Introduction.elm" words
