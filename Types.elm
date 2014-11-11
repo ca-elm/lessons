@@ -62,7 +62,7 @@ This gives us 0.5 which makes sense. Hold on though... Integers can only be coun
 
 0.5 must of some other type! Enter Floats.
 
-### Floating Point Numbers
+## Floating Point Numbers
 
 A floating point number represents *any* number. A Floating point number, or `Float` in Elm, can be as simple as `3` (yes, floats can *also* be whole numbers) or `0.5` or as complicated as `3.1415926536`. You could even write floats in scientific notation like this: `6.02e23` for $`6.02 \times 10^{23}`$ or `6.67e-11` for $`6.67 \times 10^{-11}`$
 
@@ -119,7 +119,7 @@ Behind the scenes, Elm figures out that you probably mean for both six and two t
 
 If you want to explicitely divide two integers, you can use `//` instead of `/`. This divides two integers, and truncates the result. We call this integer division.
 
-### Numbers
+## Numbers
 
 What?! Not **another** type of number! Well, I hate to break it to you, but yeah... sort of... We promise, this is the last one! We'll make it quick and painless. 
 
@@ -133,7 +133,7 @@ At a glance, the whole idea of having a third `number` type might seem completel
 
 This is the reason that all of the basic arithmetic operators work with Floats and Integers. They take two numbers and return another number. As was mentioned before, `/` and `//` are exceptions to this.
 
-### Lists
+## Lists
 
 Now we move on to lists. We've seen these before. Remember this?
 
