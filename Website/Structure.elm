@@ -7,6 +7,7 @@ type Chapter = (String, String)
 contents : [Chapter]
 contents =
   [ ("Introduction.elm", "An Introduction to Elm")
+  , ("Types.elm", "Types")
   , ("Test.elm", "Another Chapter")
   ]
 
